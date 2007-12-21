@@ -11,6 +11,7 @@ License:	LGPL
 Group:		System/Libraries
 URL:		http://limulus.net/mdsplib/
 Source:		http://limulus.net/mdsplib/mdsplib-0.11.tar.bz2
+BuildRoot:	%{_tmppath}/%{name}-root
 
 %description
 The MDSP Library provides a programmer with two functions, the major one
