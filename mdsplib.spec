@@ -1,7 +1,7 @@
 
 %define name	mdsplib
 %define version	0.11
-%define rel	1
+%define rel	2
 
 Summary:	METAR Decoder Software Package Library
 Name:		%name
