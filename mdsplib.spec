@@ -51,6 +51,7 @@ Summary:	Development headers for libmetar
 Group:		Development/C
 Requires:	%{libname} = %{version}
 Provides:	mdsplib-devel = %{version}-%{release}
+Provides:	metar-devel = %{version}-%{release}
 Obsoletes:	mdsplib-devel < 0.11-2
 
 %description -n %devname
