@@ -1,7 +1,7 @@
 
 %define name	mdsplib
 %define version	0.11
-%define rel	2
+%define rel	3
 
 %define major	0
 %define libname	%mklibname metar %major
