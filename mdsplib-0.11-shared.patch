@@ -1,0 +1,43 @@
+--- mdsplib-0.11/Makefile~	2007-06-08 11:31:18.000000000 +0200
++++ mdsplib-0.11/Makefile	2007-06-08 11:31:18.000000000 +0200
+@@ -5,16 +5,15 @@
+ libdir = $(prefix)/lib
+ includedir = $(prefix)/include
+ 
+-library: libmetar.a
++library: libmetar.so.0
+ 
+ all: dmetar library
+ 
+-libmetar.a: src/antoi.o src/charcmp.o src/dcdmetar.o src/dcdmtrmk.o src/fracpart.o src/prtdmetr.o src/stspack2.o src/stspack3.o
+-	ar ruv libmetar.a src/antoi.o src/charcmp.o src/dcdmetar.o src/dcdmtrmk.o src/fracpart.o src/prtdmetr.o src/stspack2.o src/stspack3.o
+-	ranlib libmetar.a
++libmetar.so.0: src/antoi.o src/charcmp.o src/dcdmetar.o src/dcdmtrmk.o src/fracpart.o src/prtdmetr.o src/stspack2.o src/stspack3.o
++	gcc -shared -o libmetar.so.0 -Wl,-soname,libmetar.so.0 src/antoi.o src/charcmp.o src/dcdmetar.o src/dcdmtrmk.o src/fracpart.o src/prtdmetr.o src/stspack2.o src/stspack3.o
+ 
+-dmetar: src/drvmetar.o libmetar.a
+-	$(CC) $(CFLAGS) -o dmetar src/drvmetar.o libmetar.a $(LIBS)
++dmetar: src/drvmetar.o libmetar.so.0
++	$(CC) $(CFLAGS) -o dmetar src/drvmetar.o -L. -lmetar $(LIBS)
+ 
+ src/antoi.o: src/antoi.c src/local.h
+ 	$(CC) $(CFLAGS) -c src/antoi.c -o src/antoi.o
+@@ -44,14 +43,13 @@
+ 	$(CC) $(CFLAGS) -c src/stspack3.c -o src/stspack3.o
+ 
+ clean:
+-	rm -f src/*.o dmetar libmetar.a
++	rm -f src/*.o dmetar libmetar.so.0
+ 
+ install: library
+ 	mkdir -p $(DESTDIR)$(includedir)
+ 	cp metar.h $(DESTDIR)$(includedir)/
+ 	chmod 0644 $(DESTDIR)$(includedir)/metar.h
+ 	mkdir -p $(DESTDIR)$(libdir)
+-	cp libmetar.a $(DESTDIR)$(libdir)/
+-	chmod 0644 $(DESTDIR)$(libdir)/libmetar.a
+-	ranlib $(DESTDIR)$(libdir)/libmetar.a
+-
++	cp libmetar.so.0 $(DESTDIR)$(libdir)/
++	chmod 0755 $(DESTDIR)$(libdir)/libmetar.so.0
++	ln -s libmetar.so.0 $(DESTDIR)$(libdir)/libmetar.so

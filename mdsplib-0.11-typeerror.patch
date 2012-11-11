@@ -1,0 +1,12 @@
+diff -up mdsplib-0.11/src/local.h.typeerr mdsplib-0.11/src/local.h
+--- mdsplib-0.11/src/local.h.typeerr	2003-12-10 22:30:56.000000000 +0100
++++ mdsplib-0.11/src/local.h	2009-03-24 00:50:51.000000000 +0100
+@@ -1175,7 +1175,7 @@ MDSP_BOOL std2ccap(Devaddr *, Diskaddr *
+ char *strupr(char *);
+ char *strlwr(char *);
+ /* char *strdup(char *); */
+-char *strndup(char *, int);
++char *strndup(const char *, size_t);
+ int strcmpi(char *, char *);
+  
+ /* void *memccpy(void *, void *, int, unsigned); */

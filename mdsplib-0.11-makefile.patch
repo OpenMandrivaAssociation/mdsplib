@@ -1,0 +1,31 @@
+diff -Naupr mdsplib-0.11.orig/Makefile mdsplib-0.11/Makefile
+--- mdsplib-0.11.orig/Makefile	2003-12-10 20:56:23.000000000 +0100
++++ mdsplib-0.11/Makefile	2007-03-01 14:55:05.000000000 +0100
+@@ -1,6 +1,9 @@
+ CC = gcc
+-CFLAGS = -O3
+ LIBS = 
++DESTDIR = 
++prefix = /usr
++libdir = $(prefix)/lib
++includedir = $(prefix)/include
+ 
+ library: libmetar.a
+ 
+@@ -44,9 +47,11 @@ clean:
+ 	rm -f src/*.o dmetar libmetar.a
+ 
+ install: library
+-	cp metar.h /usr/local/include/
+-	chmod 0644 /usr/local/include/metar.h
+-	cp libmetar.a /usr/local/lib/
+-	chmod 0644 /usr/local/lib/libmetar.a
+-	ranlib /usr/local/lib/libmetar.a
++	mkdir -p $(DESTDIR)$(includedir)
++	cp metar.h $(DESTDIR)$(includedir)/
++	chmod 0644 $(DESTDIR)$(includedir)/metar.h
++	mkdir -p $(DESTDIR)$(libdir)
++	cp libmetar.a $(DESTDIR)$(libdir)/
++	chmod 0644 $(DESTDIR)$(libdir)/libmetar.a
++	ranlib $(DESTDIR)$(libdir)/libmetar.a
+ 

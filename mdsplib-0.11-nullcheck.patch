@@ -1,0 +1,17 @@
+diff -Naupr mdsplib-0.11.orig/src/dcdmtrmk.c mdsplib-0.11/src/dcdmtrmk.c
+--- mdsplib-0.11.orig/src/dcdmtrmk.c	2003-12-10 22:28:15.000000000 +0100
++++ mdsplib-0.11/src/dcdmtrmk.c	2009-06-11 12:00:39.887533211 +0200
+@@ -1987,11 +1987,11 @@ MDSP_BOOL static isLTGfreq( char **strin
+    }
+    else {
+  
++      (--string);
++ 
+       if( *string == NULL )
+          return FALSE;
+  
+-      (--string);
+- 
+  
+       LTG_FREQ_FLAG = FALSE;
+                         /*-- CHECK FOR LIGHTNING FREQUENCY -----------*/

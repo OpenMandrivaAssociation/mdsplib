@@ -1,0 +1,13 @@
+Index: mdsplib-0.11/src/prtdmetr.c
+===================================================================
+--- mdsplib-0.11/src/prtdmetr.c
++++ mdsplib-0.11/src/prtdmetr.c	2010-02-06 22:03:00.161320944 +0200
+@@ -906,7 +906,7 @@
+ 	char string[5000];
+ 	
+ 	sprint_metar(string, Mptr);
+-	printf(string);
++	printf("%s", string);
+ }
+ 
+ 
