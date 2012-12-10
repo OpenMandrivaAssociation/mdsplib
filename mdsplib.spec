@@ -90,3 +90,33 @@ rm -rf %{buildroot}
 %{_includedir}/metar.h
 
 
+
+
+%changelog
+* Mon Dec 06 2010 Oden Eriksson <oeriksson@mandriva.com> 0.11-3mdv2011.0
++ Revision: 612843
+- the mass rebuild of 2010.1 packages
+
+* Sat Feb 06 2010 Anssi Hannula <anssi@mandriva.org> 0.11-2mdv2010.1
++ Revision: 501457
+- fix format strings (fmtstr.patch)
+- build shared library (shared.patch from fedora)
+- fix build (typeerror.patch from fedora)
+- fix null check (nullcheck.patch from fedora)
+- add proper rules to makefile and use them (makefile.patch from fedora)
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+* Fri Dec 21 2007 Olivier Blin <oblin@mandriva.com> 0.11-1mdv2008.1
++ Revision: 136576
+- restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+
+* Sat Nov 04 2006 Anssi Hannula <anssi@mandriva.org> 0.11-1mdv2007.0
++ Revision: 76639
+- Import mdsplib
+
