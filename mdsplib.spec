@@ -22,6 +22,7 @@ Patch12:	mdsplib-0.11-shared.patch
 Patch13:	mdsplib-0.11-typeerror.patch
 BuildRoot:	%{_tmppath}/%{name}-root
 
+BuildRequires:	make
 %description
 The MDSP Library provides a programmer with two functions, the major one
 being DcdMETAR, which decodes a METAR into structures provided by the
