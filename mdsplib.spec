@@ -10,7 +10,7 @@
 Summary:	METAR Decoder Software Package Library
 Name:		%name
 Version:	%version
-Release:	%mkrel %rel
+Release:	%rel.1
 License:	LGPLv2+
 Group:		System/Libraries
 Source:		http://limulus.net/mdsplib/mdsplib-%version.tar.bz2
